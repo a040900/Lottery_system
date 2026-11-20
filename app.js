@@ -120,7 +120,7 @@ export function init(api, doc = document, opts = {}) {
     const box = $('#auth');
     if (!state.user) {
       box.replaceChildren(h('span', { class: 'muted' }, '觀眾模式(唯讀)'),
-        h('button', { class: 'btn small', onclick: openLogin }, '工作人員登入'));
+        h('button', { class: 'btn small', onclick: openLogin }, 'Admin登入'));
       return;
     }
     const roleText = state.role === 'admin' ? 'Admin' : state.role === 'operator' ? '抽獎操作員' : '無權限帳號';
@@ -182,7 +182,7 @@ export function init(api, doc = document, opts = {}) {
     }
     if (!canDraw()) {
       warn.push(h('div', { class: 'note' },
-        state.user ? '這個帳號沒有抽獎權限。' : '你正以觀眾身分觀看,畫面會即時更新;要執行抽獎請先登入工作人員帳號。'));
+        state.user ? '這個帳號沒有抽獎權限。' : '你正以觀眾身分觀看,畫面會即時更新;要執行抽獎請先登入Admin帳號。'));
     }
 
     const cards = state.prizes.map((p, i) => {
@@ -679,7 +679,7 @@ export function init(api, doc = document, opts = {}) {
   function openLogin() {
     const email = h('input', { type: 'email', required: true, autocomplete: 'username', placeholder: 'Email' });
     const pw = h('input', { type: 'password', required: true, autocomplete: 'current-password', placeholder: '密碼' });
-    showDialog('工作人員登入', h('div', { class: 'stack' }, email, pw), (close) => [
+    showDialog('Admin登入', h('div', { class: 'stack' }, email, pw), (close) => [
       h('button', { class: 'btn', type: 'button', onclick: close }, '取消'),
       h('button', { class: 'btn primary', type: 'submit', onclick: async (e) => {
         e.preventDefault();
