@@ -1,5 +1,5 @@
 -- ============================================================
--- 住宿券抽獎系統 — Supabase schema
+-- 抽獎系統 — Supabase schema
 -- 在 Supabase Dashboard → SQL Editor 貼上整份執行即可(可重複執行)。
 --
 -- 權限模型
